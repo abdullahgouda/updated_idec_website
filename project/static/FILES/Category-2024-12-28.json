@@ -1,0 +1,18 @@
+[
+    {
+        "name": "New Category 1",
+        "name_en": "New Category 1",
+        "name_ar": "فئة جديدة 1",
+        "sub_title": "New Sub Title 1",
+        "sub_title_en": "New Sub Title 1",
+        "sub_title_ar": "عنوان فرعي جديد 1",
+        "description": "New description for category 1",
+        "description_en": "New description for category 1",
+        "description_ar": "وصف جديد للفئة 1",
+        "is_top_category": false,
+        "first_has_top_categoryss": 8,
+        "image": "categories/category1.jpg",
+        "is_active": true,
+        "visit_count": 0
+    }
+]

@@ -1,0 +1,43 @@
+{% load static %}
+{% load i18n %}  <!-- تحميل الترجمة -->
+
+
+
+			<!--Hero Section ======================-->
+            <section class="section-hero hero-3 position-relative max-width z-1 overflow-hidden bg-dark "    style="direction: {% if 'ar' in request.LANGUAGE_CODE %}rtl{% else %}ltr{% endif %};">
+                <div class="video-bg">
+                    {% if video_sliders %}
+                        {% for slider in video_sliders %}
+                            <video muted loop autoplay>
+                                <source src="{{ slider.video.url }}" type="video/mp4">
+                            </video>
+                            <div class="video-bg-overlay"></div>
+                            <div>
+                                <div class="container">
+                                    <div class="content-text text-start">
+                                        <h1 class="huge-text light-text typed-text fw-extra-bold lh-1">
+                                            {{ slider.title|default:" " }}<br>
+                                            <div id="typed-strings">
+                                                <p>{{ slider.sub_title|default:" " }}</p>
+                                            </div>
+                                            <span id="typed"></span>
+                                        </h1>
+                                        <div class="architronix-button">
+                                            <a href="contact" class="btn btn-secondary gap-10">  {{ get_global_txt_section.0.conect_us }}
+ 
+                                                <svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
+                                                </svg>	
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <p class="text-center text-light">No videos available</p>
+                    {% endif %}
+                </div>
+            </section>
+            
+			<!--Hero Section ======================-->

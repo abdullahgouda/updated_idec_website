@@ -1,0 +1,49 @@
+{% load static %}
+{% load i18n %}
+
+
+
+
+			<!--Video Section ======================-->
+			<section class="section-video section-full-width pb-0 pb-lg-130"  style="direction: {% if 'ar' in request.LANGUAGE_CODE %}rtl{% else %}ltr{% endif %};">
+				 
+				<div class="video-contents text-secondary">
+					<div class="video-contents-inner">
+						<div class="container">
+							<div class="row gy-5 gy-lg-0">								
+								<div class="col-lg-6 col-xxl-5">
+									
+							
+
+
+
+                                    
+                {{ section.html_content|safe }}
+
+
+									
+								</div>
+								<div class="col-lg-6 col-xxl-6">
+									<div class="video-image-wrapper position-relative overflow-hidden">
+										<div class="wow slideInLeft">
+											<div class="video-image">
+												<img src="{{ about_section.photo.url }}" class="img-fluid" alt="img">
+											</div>
+											<a href="{{ about_section.video }}" class="video-popup video-popup-link">
+												<span class="video-icon">												
+													<svg width="30" height="36" viewBox="0 0 30 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+														<path d="M0.500004 1.54552L29 18L0.500002 34.4545L0.500004 1.54552Z" stroke="#253B2F"/>
+													</svg>
+												</span>	
+											</a>
+										</div>										
+									</div>
+								</div>
+							</div>
+						</div>	
+					</div>
+										
+				</div>
+				
+			</section>
+			<!--Video Section ======================-->			

@@ -1,0 +1,49 @@
+{% load static %}
+{% load i18n %}
+
+			<!--Service Section ======================-->
+			<section class="section-service"  style="direction: {% if 'ar' in request.LANGUAGE_CODE %}rtl{% else %}ltr{% endif %};">
+				<div class="section-full-width">	
+					 	
+					<div class="row gx-60 gy-3 mt-n30 position-relative">
+
+
+
+                        {% for service in active_services %}
+
+						<div class="col-sm-6 col-lg-4 col-xl-3" style="direction: ltr;  ">
+							<div class="service-details">
+								<h2 class="stroke-heading">
+									<svg stroke-width="1" class="text-line-2 fw-extra-bold">
+										<text 
+										{% if 'ar' in request.LANGUAGE_CODE %} x="100%" text-anchor="end" {% else %} x="0%" text-anchor="start" {% endif %} 
+											dominant-baseline="middle" 
+											y="70%">
+											{{ forloop.counter|default:"01" }}
+										</text>
+									</svg>
+								</h2>
+								<div class="service-details" style="direction: {% if 'ar' in request.LANGUAGE_CODE %}rtl{% else %}ltr{% endif %};  margin-right:50px;">
+
+								<!-- <a href="{% url 'custom_view:Service_detail' service.id %}"   style="direction: {% if 'ar' in request.LANGUAGE_CODE %}rtl{% else %}ltr{% endif %};"> -->
+							
+									<a     style="direction: {% if 'ar' in request.LANGUAGE_CODE %}rtl{% else %}ltr{% endif %};">
+	
+									<h4 class="service-title link-hover-animation-1 d-inline-block">{{ service.title }}</h4></a>
+								<p class="mb-0">{{ service.sub_title }}</p>
+							</div>
+						</div>
+						</div>
+
+                        {% endfor %}
+
+
+						<!-- col-3 -->
+						 
+					</div>
+					<!-- row -->	
+				</div>
+				<!-- section-full-width -->
+				
+			</section>
+			<!--Service Section ======================-->

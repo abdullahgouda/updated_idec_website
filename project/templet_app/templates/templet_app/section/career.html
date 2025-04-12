@@ -1,0 +1,47 @@
+{% load static %}
+{% load i18n %}
+
+
+
+
+<!--Career Section ======================-->
+<section class="section-career position-relative"   style="direction: {% if 'ar' in request.LANGUAGE_CODE %}rtl{% else %}ltr{% endif %};">
+    <div class="container">
+        <div class="d-flex flex-column gap-30 position-relative">
+            {% for job in Job_list_section %}
+                <div class="career-item bg-secondary border border-1 d-flex align-items-lg-center gap-0 gap-lg-30 p-30">
+                    <div>
+                        <h3 class="stroke-heading stroke-heading-2 mb-0">
+                            <svg stroke-width="1" class="text-line-2 fs-60 fw-extra-bold">
+                                <text x="0%" dominant-baseline="middle" y="70%">01</text>
+                            </svg>
+                        </h3>
+                    </div>
+                    <div class="row align-items-center justify-content-between w-100 gy-20 gy-lg-0 ms-0 ms-lg-n30 ms-xl-0">
+                        <div class="col-lg-3 col-xxl-4">
+                            <div class="job-contents">
+                                <p class="fs-5 fw-bold mb-0">{{ job.title }}</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="job-contents">
+                                 <p class="mb-0 d-flex flex-column gap-0 flex-xxl-row">
+                                    <span> </span><span class="fw-bold">{{ job.created_at|date:"d M Y" }}</span>
+                                </p>
+                            </div>
+                        </div>
+                       
+                        <div class="col-lg-2">
+                            <div class="text-lg-end ms-0 ms-lg-n30 ms-xxl-0 mt-10 mt-lg-0">
+                                <a href="{% url 'custom_view:job_detail' job.id %}" class="btn btn-primary btn-md">Apply</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <p class="text-center">لا توجد وظائف حالياً.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!--Career Section ======================-->

@@ -1,0 +1,169 @@
+{% extends 'include_customer/base.html' %}
+
+
+{% load static %}
+
+
+
+
+{% block top_catagory_navbar %}    
+{% include 'templet_app/section/top_catagory_navbar.html' %}
+{% endblock top_catagory_navbar %}
+
+
+
+
+
+{% block footer %}    
+{% include 'templet_app/section/footer.html' %}
+{% endblock footer %}
+
+
+
+
+
+
+
+
+
+{% block body %}    
+ 
+
+
+
+
+
+
+
+<!-- Hero Section ====================== -->
+<div class="section-hero hero-2 section-padding-xxl position-relative max-width" style="width: 100%; height: 90%; overflow: hidden;">				
+    {% if header_photo %}
+        <img src="{{ header_photo.photo.url }}" class="img-fluid w-100 h-100" style="object-fit: cover;" alt="{{ project.name }}">
+    {% else %}
+        <img src="assets/images/default-hero-image.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;" alt="default-hero-image">
+    {% endif %}
+</div>
+<!-- Hero Section ====================== -->
+
+
+<!-- Hero Section ====================== -->
+
+<!-- Section ====================== -->
+<section class="section-full-width position-relative"   style="direction: {% if 'ar' in request.LANGUAGE_CODE %}rtl{% else %}ltr{% endif %};">
+    <div class="container">	
+        <div class="section-padding-xxl">
+            <div class="position-relative">
+                <div class="row g-40">
+                    <div class="col-lg-7 col-xxl-8">
+                        <div class="section-title">
+                            <h2 class="fw-extra-bold heading-title">{{ project.title }}</h2>
+                            <p class="fs-4 mb-0 subtitle">{{ project.sub_title }}</p>	
+                        </div>
+                    </div>
+                </div>
+            </div>						
+        </div>											
+    </div>		
+    <!-- container -->
+
+    <div class="container section-padding-lg">				
+        <div class="swiper gallerySwiper2">
+            <div class="swiper-wrapper">
+                {% for photo in photos %}
+                <div class="swiper-slide">
+                    <img src="{{ photo.photo.url }}" class="img-fluid" alt="gallery-img"  style="width: 100%; height: 80%; object-fit: cover;">
+                </div>
+                {% empty %}
+                <div class="swiper-slide">
+                    <img src="assets/images/default-gallery.jpg" class="img-fluid" alt="default-gallery">
+                </div>
+                {% endfor %}					 
+            </div>
+            <div class="project-gallery-button-next">
+                <svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
+                </svg>
+            </div>
+            <div class="project-gallery-button-prev">
+                <svg class="arrow-reverse" width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
+                </svg>
+            </div>
+        </div>
+        <div class="swiper gallerySwiper mt-4">
+            <div class="swiper-wrapper">
+                {% for photo in photos %}
+                <div class="swiper-slide">
+                    <img src="{{ photo.photo.url }}" class="img-fluid" alt="gallery-img" style="width: 80%; height: 50%; object-fit: cover;">
+                </div>
+                {% empty %}
+                <div class="swiper-slide">
+                    <img src="assets/images/default-gallery.jpg" class="img-fluid" alt="default-gallery">
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Section ====================== -->
+
+	 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {% for structure in structures %}
+    {% if structure.command_code %}
+         {% include structure.command_code %}
+    {% else %}
+             {{ structure.html_content|safe }}
+    {% endif %}
+{% endfor %}
+
+
+
+ 
+
+
+
+
+
+
+{% endblock body %}
+ 
+
+
+
+

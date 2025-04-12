@@ -1,0 +1,73 @@
+﻿title,title_en,title_ar,pages,sections,order,html_content,html_content_en,html_content_ar,command_code
+20,20,20,9,17,20,,,,templet_app/section/contactus.html
+10,10,10,9,18,10,,,,templet_app/section/address_section.html
+1,1,1,9,,1,"<section class=""section-about about-1 section-full-width "" >
+    <div class=""section-full-width"">	
+        <div class=""section-title-wrapper position-relative"">
+            <div class=""scroll-move"">
+                <span class=""scrolling-text display-1 fw-extra-bold stroke-title text-stroke stroke-opacity-20 stroke-width-1 stroke-primary lh-1"">Gallery</span>
+            </div>				
+            <div class=""container"">	
+                <div class=""section-title  "">
+                    <h2 class=""fw-extra-bold heading-title  "" >Exploring Our Creations</h2>
+                    <div class=""d-flex flex-column flex-lg-row gap-4 align-items-lg-end justify-content-lg-between"">
+                        <p class=""fs-4 fw-semibold mb-0 subtitle subtitle-width"">Where Imagination Takes Flight, and Excellence Blossoms</p>	
+                        <div class=""architronix-button"">
+                            <a href=""project-archive.html"" class=""btn btn-outline-primary  gap-10"">View All Projects 							
+                                <svg width=""35"" height=""22"" viewBox=""0 0 35 22"" fill=""none"" xmlns=""http://www.w3.org/2000/svg"">
+                                    <path fill-rule=""evenodd"" clip-rule=""evenodd"" d=""M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z""/>
+                                </svg>							
+                            </a>
+                        </div>								
+                    </div>
+                </div>
+            </div>
+        </div>			
+    </div>
+</section>","<section class=""section-about about-1 section-full-width "" >
+    <div class=""section-full-width"">	
+        <div class=""section-title-wrapper position-relative"">
+            <div class=""scroll-move"">
+                <span class=""scrolling-text display-1 fw-extra-bold stroke-title text-stroke stroke-opacity-20 stroke-width-1 stroke-primary lh-1"">Gallery</span>
+            </div>				
+            <div class=""container"">	
+                <div class=""section-title  "">
+                    <h2 class=""fw-extra-bold heading-title  "" >Exploring Our Creations</h2>
+                    <div class=""d-flex flex-column flex-lg-row gap-4 align-items-lg-end justify-content-lg-between"">
+                        <p class=""fs-4 fw-semibold mb-0 subtitle subtitle-width"">Where Imagination Takes Flight, and Excellence Blossoms</p>	
+                        <div class=""architronix-button"">
+                            <a href=""project-archive.html"" class=""btn btn-outline-primary  gap-10"">View All Projects 							
+                                <svg width=""35"" height=""22"" viewBox=""0 0 35 22"" fill=""none"" xmlns=""http://www.w3.org/2000/svg"">
+                                    <path fill-rule=""evenodd"" clip-rule=""evenodd"" d=""M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z""/>
+                                </svg>							
+                            </a>
+                        </div>								
+                    </div>
+                </div>
+            </div>
+        </div>			
+    </div>
+</section>","<section class=""section-about about-1 section-full-width "" >
+    <div class=""section-full-width"">	
+        <div class=""section-title-wrapper position-relative"">
+            <div class=""scroll-move"">
+                <span class=""scrolling-text display-1 fw-extra-bold stroke-title text-stroke stroke-opacity-20 stroke-width-1 stroke-primary lh-1"">Gallery</span>
+            </div>				
+            <div class=""container"">	
+                <div class=""section-title  "">
+                    <h2 class=""fw-extra-bold heading-title  "" >Exploring Our Creations</h2>
+                    <div class=""d-flex flex-column flex-lg-row gap-4 align-items-lg-end justify-content-lg-between"">
+                        <p class=""fs-4 fw-semibold mb-0 subtitle subtitle-width"">Where Imagination Takes Flight, and Excellence Blossoms</p>	
+                        <div class=""architronix-button"">
+                            <a href=""project-archive.html"" class=""btn btn-outline-primary  gap-10"">View All Projects 							
+                                <svg width=""35"" height=""22"" viewBox=""0 0 35 22"" fill=""none"" xmlns=""http://www.w3.org/2000/svg"">
+                                    <path fill-rule=""evenodd"" clip-rule=""evenodd"" d=""M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z""/>
+                                </svg>							
+                            </a>
+                        </div>								
+                    </div>
+                </div>
+            </div>
+        </div>			
+    </div>
+</section>",

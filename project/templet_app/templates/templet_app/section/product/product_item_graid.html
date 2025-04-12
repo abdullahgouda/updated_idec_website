@@ -1,0 +1,42 @@
+{% load static %}
+{% load i18n %}
+<!-- product_item.html -->
+
+ 
+
+
+
+<div class="col-md-6 col-lg-4">
+    <div class="shop-details">
+        <div class="shop-image-wrapper position-relative">
+            <div class="shop-image">
+            
+                <a href="{% url 'custom_view:Product_detail' product_data.product.id %}">
+
+                {% if product_data.main_photo %}
+                <img src="{{ product_data.main_photo.photo.url }}" class="w-200 h-200 object-fit-cover" alt="{{ product_data.product.title }}">
+            {% else %}
+                <img src="{% static 'assets/images/default-product.jpg' %}" class="w-200 h-200 object-fit-cover" alt="Default image" style=" height: 100%; object-fit: cover; ">
+            {% endif %}
+        </a>
+
+
+            </div>
+            <div class="shop-image-hover">
+                <a class="  btn-outline-secondary  gap-10" href="{% url 'custom_view:Product_detail' product_data.product.id %}"> 	
+                  	
+                </a>
+            </div>
+        </div>
+        <!-- shop-image-wrapper -->
+        <a href="{% url 'custom_view:Product_detail' product_data.product.id %}" class="text-decoration-none">
+            <div class="shopping-info-wrapper mt-3 mt-lg-4 d-flex justify-content-between">
+                <div class="shopping-item-details"  >
+                    <h5 class="fw-semibold product-title"style="display: flex; justify-content: center;  text-align: center;">{{ product_data.product.title }}</h5>
+                 </div>
+                
+            </div>
+        </a>
+    </div>
+</div>
+<!-- col-4 -->

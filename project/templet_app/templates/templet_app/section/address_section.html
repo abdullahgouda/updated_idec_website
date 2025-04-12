@@ -1,0 +1,44 @@
+{% load static %}
+{% load i18n %}
+
+
+			<!--Section section-contact-map ======================-->
+			<section class="section-contact-map position-relative mt-n4 mt-md-n60"   style="direction: {% if 'ar' in request.LANGUAGE_CODE %}rtl{% else %}ltr{% endif %};">
+				<div class="container">
+					<div class="swiper contact-swiper">
+						<div class="swiper-wrapper">
+						 
+
+
+
+                            {% for address in get_CompanyAddress_section %}
+                            <div class="swiper-slide">
+                                <div class="contact-details">
+                                    <h2 class="stroke-heading">
+                                        <svg stroke-width="1" class="text-line-2 fw-extra-bold">
+                                            <text x="0%" dominant-baseline="middle" y="70%">{{ forloop.counter|default:1|add:"00" }}</text>
+                                        </svg>
+                                    </h2>
+                                    <h4 class="service-title">{{ address.title }}</h4>
+                                    <p class="mb-0 fw-semibold">{{ address.sub_title }}</p>
+                                    <p class="mb-20 contact-home">Phone: {{ address.phone }}</p>
+                                    <p class="mb-0">Email: {{ address.email }}</p>
+                                </div>
+                            </div>
+                            <!-- swiper-slide -->
+                            {% endfor %}
+
+
+
+
+						 											
+						</div>
+						<!-- swiper-wrapper -->
+					</div>
+					<!-- swiper -->
+	 								
+				</div>
+				<!-- container -->
+			</section>
+			<!--Section section-contact-map ======================-->
+

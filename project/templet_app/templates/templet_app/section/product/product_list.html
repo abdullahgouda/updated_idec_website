@@ -1,0 +1,70 @@
+{% load static %}
+{% load i18n %}
+
+<!-- Shop Section ======================-->
+<section class="section-shop shop-1 section-full-width"   style="direction: {% if 'ar' in request.LANGUAGE_CODE %}rtl{% else %}ltr{% endif %};">
+    
+
+    <div class="swiper-custom-progress position-relative">
+        <div class="swiper shop-swiper">
+            <div class="swiper-wrapper">
+
+
+                {% for product_data in product_list_section %}
+                {% include 'templet_app/section/product/product_item.html' %}
+            {% endfor %}
+
+
+                {% comment %} {% for product_data in product_list %}
+                    <div class="swiper-slide">
+                        <div class="shop-details">
+                            <div class="shop-image-wrapper position-relative">
+                                <div class="shop-image">
+                                    {% if product_data.main_photo %}
+                                        <img src="{{ product_data.main_photo.photo.url }}" class="w-200 h-200 object-fit-cover" alt="{{ product_data.product.title }}">
+                                    {% else %}
+                                        <img src="{% static 'assets/images/default-product.jpg' %}" class="w-200 h-200 object-fit-cover" alt="Default image">
+                                    {% endif %}
+                                </div>
+                                <div class="shop-image-hover">
+                                    <!-- Hover effects if needed -->
+                                </div>
+                            </div>
+                            <!-- shop-image-wrapper -->
+                            <a href="" class="text-decoration-none">
+                                <div class="shopping-info-wrapper mt-3 mt-lg-4 d-flex justify-content-between">
+                                    <div class="shopping-item-details">
+                                        <h5 class="fw-semibold product-title">{{ product_data.product.title }}</h5>
+                                    </div>
+                                    <div>
+                                        <!-- Optional: Add price and rating if available -->
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %} {% endcomment %}
+            </div>
+            <!-- swiper-wrapper -->
+        </div>
+        <!-- swiper -->
+        <!-- <div class="container">
+            <div class="shop-swiper-pagination-wrapper">
+                <div class="shop-swiper-pagination"></div>
+                <div class="swiper-button-progress">
+                    <div class="progress-button-prev">
+                        <svg class="arrow-reverse" width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
+                        </svg>
+                    </div>
+                    <div class="progress-button-next">
+                        <svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+</section>
+<!-- Shop Section ======================-->

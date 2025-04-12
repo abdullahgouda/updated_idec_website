@@ -1,0 +1,41 @@
+{% load static %}
+{% load i18n %}
+
+
+
+<section class="section-contact-form position-relative pt-60 pt-lg-100 pt-xxl-120"   style="direction: {% if 'ar' in request.LANGUAGE_CODE %}rtl{% else %}ltr{% endif %};">
+    <div class="container">
+        <div class="row justify-content-between gy-5">
+            
+            <div class="col-lg-12">
+                <form id="contactForm" class="contact-form row gy-3 gx-20" method="post">
+                    {% csrf_token %}
+                    <div class="col-12">
+                        {{ contact_form.name }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ contact_form.phone }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ contact_form.email }}
+                    </div>
+                    <div class="col-12">
+                        {{ contact_form.message }}
+                    </div>
+                    <div class="col-12">
+                        <div class="text-lg-end  ">
+                            <button type="submit" class="btn btn-outline-primary gap-10" style="width: 100%; ">{{ get_global_txt_section.0.Send_message }}</button>
+                        </div>
+                    </div>
+                </form>
+                {% if messages %}
+                    <div class="messages">
+                        {% for message in messages %}
+                            <div class="alert alert-success">{{ message }}</div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>

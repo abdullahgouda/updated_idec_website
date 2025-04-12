@@ -1,0 +1,140 @@
+{% extends 'include_customer/base.html' %}
+
+
+{% load static %}
+
+
+
+
+{% block top_catagory_navbar %}    
+{% include 'templet_app/section/top_catagory_navbar.html' %}
+{% endblock top_catagory_navbar %}
+
+
+
+
+
+{% block footer %}    
+{% include 'templet_app/section/footer.html' %}
+{% endblock footer %}
+
+
+
+
+
+
+
+
+
+{% block body %}    
+ 
+
+
+
+
+
+ <!-- Banner Section ======================-->
+ <section class="section-banner bg-secondary section-full-width position-relative pt-60 pt-lg-100 pt-xxl-100 pb-120 pb-lg-100 pb-xxl-130"   style="direction: {% if 'ar' in request.LANGUAGE_CODE %}rtl{% else %}ltr{% endif %};">
+    <div class="container">
+        <div class="career-info pt-60 pt-lg-70 pt-xxl-100 pb-120 pb-lg-100 pb-xxl-130">
+            <div class="row align-items-end justify-content-between">
+                <div class="col-lg-7 col-xxl-6">
+                    <h1 class="display-3 mb-40">{{ Job_list_section.0.title }}</h1>
+                    <div class="d-none d-lg-block">
+                      
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="text-lg-end">
+                        {% comment %} <a href="#" class="btn btn-primary">{{ Job_list_section.0.status }}</a> {% endcomment %}
+
+
+
+                        {% comment %} <a href="mailto:recipient@example.com?subject={{ Job_list_section.0.title }}&body={{ Job_list_section.0.title }}" class="btn btn-primary">إرسال بريد إلكتروني</a> {% endcomment %}
+
+
+                    </div>
+
+
+
+
+
+
+
+                </div>  
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Banner Section ======================-->
+
+<!-- Career Section ======================-->
+<section class="section-career position-relative pt-lg-100 pb-60 pb-lg-100 pt-lg-5 pb-xxl-120"   style="direction: {% if 'ar' in request.LANGUAGE_CODE %}rtl{% else %}ltr{% endif %};">
+    <div class="container">
+        <div class="row gy-5 justify-content-between">
+            
+
+            <div class="col-lg-7 order-lg-0">
+                <div class="mb-30">
+                    <h4 class="mb-4 mb-lg-30">Job Description</h4>
+                    <div class="d-flex flex-column gap-4 gap-lg-30">
+                        <p class="mb-0"> {{ Job_list_section.0.description }}  </p>
+                    </div>
+                </div>
+
+            
+
+ 
+                {% if Job_list_section.0.html_content %}
+                {{ Job_list_section.0.html_content }}
+            {% else %}
+             {% endif %}
+
+
+
+
+ 
+            </div>
+        </div>
+    </div>
+
+   
+</section>
+<!-- Career Section ======================-->
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {% for structure in structures %}
+    {% if structure.command_code %}
+         {% include structure.command_code %}
+    {% else %}
+             {{ structure.html_content|safe }}
+    {% endif %}
+{% endfor %}
+
+
+
+ 
+
+
+
+
+
+
+{% endblock body %}
+ 
+
+
+
+

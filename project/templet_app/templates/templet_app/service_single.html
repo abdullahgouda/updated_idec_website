@@ -1,0 +1,138 @@
+{% extends 'include_customer/base.html' %}
+
+
+{% load static %}
+
+
+
+
+{% block top_catagory_navbar %}    
+{% include 'templet_app/section/top_catagory_navbar.html' %}
+{% endblock top_catagory_navbar %}
+
+
+
+
+
+{% block footer %}    
+{% include 'templet_app/section/footer.html' %}
+{% endblock footer %}
+
+
+
+
+
+
+
+
+
+{% block body %}    
+ 
+
+
+
+
+
+
+
+
+  <!--Banner Section ======================-->
+<section class="section-banner position-relative pt-60"   style="direction: {% if 'ar' in request.LANGUAGE_CODE %}rtl{% else %}ltr{% endif %};">
+    <div class="section-full-width">
+        <div class="section-title-wrapper position-relative">
+            <br />
+            <br />
+            <br />
+            <div class="container">
+                <div class="section-title">
+                    <!-- عرض عنوان الخدمة -->
+                    <h2 class="fw-extra-bold heading-title">{{ service.title }}</h2>
+                    <div class="d-flex flex-column flex-lg-row gap-4 align-items-lg-end justify-content-lg-between">
+                        <!-- عرض العنوان الفرعي -->
+                        <p class="fs-4 fw-semibold mb-0 subtitle subtitle-width">{{ service.sub_title }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- section-title-wrapper -->
+    </div>
+    <!-- section-full-width -->
+</section>
+<!--Banner Section ======================-->
+
+<!--Service Section ======================-->
+<section class="section-service position-relative" style="direction: rtl;">
+    <div class="container">
+        <div class="position-relative">
+            <div class="row justify-content-between gy-5 gy-lg-0">
+                <div class="col-lg-9">
+                    <!-- صورة الخدمة -->
+                    <div class="service-single-image mb-30 mb-lg-5">
+                        {% if service.photo %}
+                        <img src="{{ service.photo.url }}" class="img-fluid" alt="{{ service.title }}">
+                        {% else %}
+                        <img src="assets/images/default-service-image.jpg" class="img-fluid" alt="default-service-image">
+                        {% endif %}
+                    </div>
+                    <!-- تفاصيل الخدمة -->
+                    <div class="d-flex flex-column gap-30 gap-lg-5">
+                        <div>
+                            <h4 class="mb-4 mb-lg-30">Overview</h4>
+                            <!-- عرض نص النظرة العامة -->
+                            <p class="mb-0">{{ service.overview }}</p>
+                        </div>
+                        <!-- محتوى HTML -->
+                        {% if service.html_content %}
+                        <div>
+                            {{ service.html_content|safe }}
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <!-- col-7 -->
+            </div>
+            <!-- row -->
+        </div>
+    </div>
+    <!-- container -->
+</section>
+<!--Service Section ======================-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {% for structure in structures %}
+    {% if structure.command_code %}
+         {% include structure.command_code %}
+    {% else %}
+             {{ structure.html_content|safe }}
+    {% endif %}
+{% endfor %}
+
+
+
+ 
+
+
+
+
+
+
+{% endblock body %}
+ 
+
+
+
+

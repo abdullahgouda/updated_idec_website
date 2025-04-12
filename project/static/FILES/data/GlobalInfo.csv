@@ -1,0 +1,42 @@
+﻿welcome_message,welcome_message_en,welcome_message_ar,phone,whats_phone,whats_product_massage,whats_product_massage_en,whats_product_massage_ar,whats_product_botton,whats_product_botton_en,whats_product_botton_ar,whats_home_massage,whats_home_massage_en,whats_home_massage_ar,email,logo_home,micro_logo,svg_logo,small_description,small_description_en,small_description_ar,is_active,html_content,html_content_en,html_content_ar
+"إنشاء بيئة عمل جيدة وإيجابية تؤدي إلى فريق عمل فعال، مما يوفر خدمات وحلول مهنية لعملائنا الكرام.","Establishing a good and positive work environment leading to effective teamwork, thus providing professional services and solutions to our valued clients.
+","إنشاء بيئة عمل جيدة وإيجابية تؤدي إلى فريق عمل فعال، مما يوفر خدمات وحلول مهنية لعملائنا الكرام.",966-13-8942021,966 56 135 4065,"من فضلك، أرغب في معرفة المزيد عن المنتج التالي.",This is a polite and clear way to request more information about a product.,"من فضلك، أرغب في معرفة المزيد عن المنتج التالي.",تعلم المزيد عن المنتج,Learn more about the product,تعلم المزيد عن المنتج,أريد التواصل معك لأن,I want to communicate with you because,أريد التواصل معك لأن,madonna.a@idec.com.sa,logos/logo.png,micro_logos/logo.original.png,svg_logos/logo.original.png,"إنشاء بيئة عمل جيدة وإيجابية تؤدي إلى فريق عمل فعال، مما يوفر خدمات وحلول مهنية لعملائنا الكرام.","Establishing a good and positive work environment leading to effective teamwork, thus providing professional services and solutions to our valued clients.
+","إنشاء بيئة عمل جيدة وإيجابية تؤدي إلى فريق عمل فعال، مما يوفر خدمات وحلول مهنية لعملائنا الكرام.",1,"<div class=""col-lg-4 col-xxl-3"">
+    <div class=""address-details"">
+        <h5 class=""fw-extra-bold"">
+            <a href=""/about_us/"" class=""link-hover-animation-1 text-decoration-none"" aria-label=""top-bar-link"">من نحن</a>
+        </h5>
+        <h5 class=""fw-extra-bold"">
+            <a href=""/blog_archive/"" class=""link-hover-animation-1 text-decoration-none"" aria-label=""top-bar-link"">المدونات</a>
+        </h5>
+        <h5 class=""fw-extra-bold"">
+            <a href=""/career_page/"" class=""link-hover-animation-1 text-decoration-none"" aria-label=""top-bar-link"">الوظائف</a>
+        </h5>
+        <h5 class=""fw-extra-bold"">
+            <a href=""/contact/"" class=""link-hover-animation-1 text-decoration-none"" aria-label=""top-bar-link"">اتصل بنا</a>
+        </h5>
+    </div>
+</div>","<div class=""col-lg-4 col-xxl-3"">
+							<div class=""address-details"">
+								<h5 class=""fw-extra-bold  ""><a href=""/about_us/"" class=""link-hover-animation-1 text-decoration-none  "" aria-label=""top-bar-link"">About us</a></h5>
+								<h5 class=""fw-extra-bold  ""><a href=""/blog_archive/"" class=""link-hover-animation-1 text-decoration-none  "" aria-label=""top-bar-link"">Blogs</a></h5>
+								<h5 class=""fw-extra-bold  ""><a href=""/career_page/"" class=""link-hover-animation-1 text-decoration-none  "" aria-label=""top-bar-link"">career</a></h5>
+								<h5 class=""fw-extra-bold  ""><a href=""/contact/"" class=""link-hover-animation-1 text-decoration-none  "" aria-label=""top-bar-link"">contact</a></h5>
+						
+							</div>
+						</div>","<div class=""col-lg-4 col-xxl-3"">
+    <div class=""address-details"">
+        <h5 class=""fw-extra-bold"">
+            <a href=""/about_us/"" class=""link-hover-animation-1 text-decoration-none"" aria-label=""top-bar-link"">من نحن</a>
+        </h5>
+        <h5 class=""fw-extra-bold"">
+            <a href=""/blog_archive/"" class=""link-hover-animation-1 text-decoration-none"" aria-label=""top-bar-link"">المدونات</a>
+        </h5>
+        <h5 class=""fw-extra-bold"">
+            <a href=""/career_page/"" class=""link-hover-animation-1 text-decoration-none"" aria-label=""top-bar-link"">الوظائف</a>
+        </h5>
+        <h5 class=""fw-extra-bold"">
+            <a href=""/contact/"" class=""link-hover-animation-1 text-decoration-none"" aria-label=""top-bar-link"">اتصل بنا</a>
+        </h5>
+    </div>
+</div>"

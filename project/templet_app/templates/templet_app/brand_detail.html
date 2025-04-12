@@ -1,0 +1,358 @@
+{% extends 'include_customer/base.html' %}
+
+
+{% load static %}
+
+
+
+
+{% block top_catagory_navbar %}    
+{% include 'templet_app/section/top_catagory_navbar.html' %}
+{% endblock top_catagory_navbar %}
+
+
+
+
+
+{% block footer %}    
+{% include 'templet_app/section/footer.html' %}
+{% endblock footer %}
+
+
+
+
+
+
+
+
+
+{% block body %}    
+ 
+
+
+
+
+
+
+
+
+ 
+
+			<!--Banner-Section ======================-->
+			<section class="section-banner position-relative pt-60"    style="direction: {% if 'ar' in request.LANGUAGE_CODE %}rtl{% else %}ltr{% endif %};">
+				<div class="section-full-width">
+					<div class="section-title-wrapper position-relative">	
+					 			
+						<div class="scroll-move">
+							<span class="scrolling-text display-1 fw-extra-bold stroke-title text-stroke stroke-opacity-20 stroke-width-1 stroke-primary lh-1"> </span>
+						</div>				
+						
+						<div class="container">	
+							<div class="section-title  ">
+								<h2 class="fw-extra-bold heading-title  ">{{ brand.name }}</h2>
+								     <!-- شرط لعرض العنوان الفرعي إذا كان موجودًا -->
+                                     {% if brand.sub_title %}
+                                     <div class="d-flex flex-column flex-lg-row gap-4 align-items-lg-end justify-content-lg-between">
+                                         <p class="fs-4 fw-semibold mb-0 subtitle subtitle-width">{{ brand.sub_title }}</p>
+                                     </div>
+                                 {% else %}
+                                   
+                                 {% endif %}
+							</div>
+						</div>
+					</div>
+					<!-- section-title-wrapper -->	
+				</div>
+				<!-- section-full-width -->	
+			</section>
+			<!--Banner-Section ======================-->
+			
+
+
+			<!--Blog-Section ======================-->
+			<section class="section-blog position-relative"   style="direction: {% if 'ar' in request.LANGUAGE_CODE %}rtl{% else %}ltr{% endif %};">
+				<div class="container">
+					<div class="position-relative section-padding-xxl">
+						<div class="row gx-60 gy-5">
+							<div class="col-lg-4">
+								<div class="d-flex flex-column gap-5 gap-lg-70">
+									<!-- <div class="widget">
+										<h5 class="display-5 fw-semibold mb-30 lh-1">Search</h5>
+										<form action="#" class="contact-form">
+											<div>
+												<input type="text" class="form-control" id="formInput" placeholder="Type & Hit Enter">
+											</div>										  
+										</form>
+									</div> -->
+									<!-- widget -->
+
+									<div class="widget">
+										<h5 class="display-5 fw-semibold mb-30 lh-1"> </h5>
+										<ul class="category-lists list-unstyled mb-0 d-flex flex-column gap-20">
+										 
+											
+                                            {% for category in sub_category %}
+                                         
+
+
+
+                                            <li class="d-flex align-items-center gap-4">
+											 
+
+												<a href="{% url 'custom_view:catagory_detail' category.id %}" class="text-decoration-none link-hover-animation-1">  {{ category.name }}  </a> 
+
+
+
+
+											</li>
+
+
+                                        {% endfor %}
+										</ul>
+									</div>
+									<!-- widget -->
+
+									<div class="widget">
+										<h5 class="display-5 fw-semibold mb-30 lh-1">Brands</h5>
+										<div class="wp-block-tag-cloud d-flex flex-wrap">
+											
+                                            
+                                            
+                                             
+		
+                                            {% for category_brand in category_brand %}
+                                         
+
+ 
+       
+
+                                            <a href="{% url 'custom_view:brand_detail' category_brand.id %}" class="text-decoration-none tag-cloud-link btn-hover-animation-3">
+                                                {{ category_brand.name }}
+                                            </a>
+                                            
+                                        {% endfor %}
+
+
+
+                                        </div>
+									</div>
+									<!-- widget -->
+								</div>
+								
+							</div>
+							<!-- col-4 -->
+							<div class="col-lg-8">
+								<div class="container">
+									<div class="row gx-4 gy-5 gy-lg-70 section-padding-lg">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        {% for product_data in product_list %}
+                                        {% include 'templet_app/section/product/product_item_graid.html' %}
+                                    {% endfor %}
+                        
+
+
+
+
+
+
+
+
+
+									</div>
+									<!-- row -->
+				
+									<nav aria-label="Page navigation">
+                                        <ul class="pagination justify-content-center align-items-end position-relative">
+                                            <!-- زر الصفحة السابقة -->
+                                            {% if product_list.has_previous %}
+                                            <li class="page-item me-md-10">
+                                                <a class="btn prev-btn prev-btn-sm me-10" href="?page={{ product_list.previous_page_number }}">
+                                                    <svg class="arrow-reverse" width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
+                                                    </svg>
+                                                </a>
+                                            </li>
+                                            {% endif %}
+                                    
+                                            <!-- أرقام الصفحات -->
+                                            {% for page_num in product_list.paginator.page_range %}
+                                            <li class="page-item {% if product_list.number == page_num %}active{% endif %}">
+                                                <a class="page-link fw-semibold next-btn next-btn-sm" href="?page={{ page_num }}">
+                                                    {{ page_num|default:"..." }}
+                                                </a>
+                                            </li>
+                                            {% endfor %}
+                                    
+                                            <!-- زر الصفحة التالية -->
+                                            {% if product_list.has_next %}
+                                            <li class="page-item">
+                                                <a class="btn btn-primary btn-lg d-inline-flex gap-10" href="?page={{ product_list.next_page_number }}">Next
+                                                    <svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
+                                                    </svg>
+                                                </a>
+                                            </li>
+                                            {% endif %}
+                                        </ul>
+                                    </nav>
+								</div>
+								<!-- row -->
+							</div>
+							<!-- col-8 -->
+						</div>
+						<!-- row -->
+						
+					</div>
+						
+									
+				</div>	
+				<!-- container -->
+			</section>
+			<!--Blog-Section ======================-->
+
+
+
+
+
+
+
+
+			<!-- <div class="random-slider background-color-offwhite">
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<h1 class="sub-header">
+								{{ get_global_txt_section.0.brand_title_section }}
+							</h1>
+						</div>
+						<div class="col-12">
+							<ol class="row random align-items-center positions">
+								{% for brand in category_brand %}
+									 
+
+
+
+								<li class="col-lg-3 col-6 position position-2">
+									{% if category_brand.logo %}
+										<a href="{% url 'custom_view:brand_detail' category_brand.id %}" target="_blank">
+											<img src="{{ category_brand.logo.url }}" alt="{{ category_brand.name }}">
+										</a>
+									{% else %}
+										<p>{{ brand.name }}</p>
+
+										
+									{% endif %}
+								</li>
+								
+
+
+								{% endfor %}
+							</ol>
+							<ul class="Network-list">
+								{% for brand in category_brand %}
+									<li>
+										{% if brand.logo %}
+ 
+
+											<a href="{% url 'custom_view:brand_detail' brand.id %}" target="_blank">
+												<img src="{{ brand.logo.url }}" alt="{{ brand.name }}">
+											</a>
+
+										{% else %}
+											<p>{{ brand.name }}</p>
+
+
+
+
+											
+										{% endif %}
+									</li>
+								{% endfor %}
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			 -->
+			
+			
+
+
+
+
+
+
+
+ 
+
+
+
+			<div class="container py-5">
+				<h2 class="text-center mb-4">								{{ get_global_txt_section.0.brand_title_section }}
+				</h2>
+				<div class="container">
+					<div class="brand-slider" id="brandSlider">
+						<div class="brand-track" id="brandTrack">
+
+							{% for brand in category_brand %}
+				 
+
+
+							{% if brand.logo %}
+							<a href="{% url 'custom_view:brand_detail' brand.id %}" >
+								<img class="img-fluid" style="max-width: 200px; height: auto;" src="{{ brand.logo.url }}" alt="{{ brand.name }}">
+							</a>
+													{% else %}
+						{% endif %}
+	
+	
+	
+						{% endfor %}						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+
+
+
+
+    {% for structure in structures %}
+    {% if structure.command_code %}
+         {% include structure.command_code %}
+    {% else %}
+             {{ structure.html_content|safe }}
+    {% endif %}
+{% endfor %}
+
+
+
+ 
+
+
+
+
+
+
+{% endblock body %}
+ 
+
+
+
+

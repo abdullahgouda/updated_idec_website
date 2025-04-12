@@ -1,0 +1,70 @@
+{% extends 'include_customer/base.html' %}
+
+
+{% load static %}
+
+
+
+
+{% block top_catagory_navbar %}    
+{% include 'templet_app/section/top_catagory_navbar.html' %}
+{% endblock top_catagory_navbar %}
+
+
+
+
+
+{% block footer %}    
+{% include 'templet_app/section/footer.html' %}
+{% endblock footer %}
+
+
+
+
+
+
+
+
+
+{% block body %}    
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+{% for structure in structures %}
+{% if structure.command_code %}
+	 {% include structure.command_code %}
+{% else %}
+		 {{ structure.html_content|safe }}
+{% endif %}
+{% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock body %}
+

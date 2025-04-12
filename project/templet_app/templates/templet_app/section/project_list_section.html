@@ -1,0 +1,67 @@
+{% load static %}
+{% load i18n %}
+
+<!-- Project Section -->
+<section class="section-project project-1"   style="direction: {% if 'ar' in request.LANGUAGE_CODE %}rtl{% else %}ltr{% endif %};">
+    <div class="section-full-width">
+        <div id="projectSlider" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+            <div class="carousel-inner text-secondary">
+                {% for item in active_projects %}
+                <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                    <div class="project-contents position-relative">
+                        <div class="project-image overlay">
+                            <picture>
+                                <!-- عرض الصورة الرئيسية -->
+                                {% if item.header_photo %}
+                                <img src="{{ item.header_photo.photo.url }}" class="w-100 h-100 object-fit-cover" alt="{{ item.project.title }}">
+                                {% else %}
+                                <img src="{% static 'assets/images/default-project.jpg' %}" class="w-100 h-100 object-fit-cover" alt="Default Project">
+                                {% endif %}
+                            </picture>
+                        </div>
+                        <ul class="project-details list-unstyled mb-0 d-flex align-items-center">
+                           
+ 
+                            {% comment %} <li class="d-none d-sm-block">
+                                <span class="d-flex flex-column gap-2 gap-xxl-10">
+                                    <span class="fs-5 fw-bold">Project year:</span>
+                                    <span>{{ item.project.year|default:"N/A" }}</span>
+                                </span>
+                            </li>
+                            <li class="d-flex flex-column gap-2 gap-xxl-10">
+                                <span class="fs-5 fw-bold">Project type:</span>
+                                <span>{{ item.project.project_type|default:"N/A" }}</span>
+                            </li> {% endcomment %}
+                            <li class="architronix-button d-none d-xl-block">
+                                <a href="{% url 'custom_view:project_single' item.project.id %}" class="btn btn-outline-secondary gap-10">{{ get_global_txt_section.0.View_Project }}</a>
+                            </li>
+                        </ul>
+                        <div class="project-info bg-primary">
+                            <h5 class="project-title fw-extra-bold">{{ item.project.title }}</h5>
+                            <p class="mb-0">{{ item.project.sub_title}}
+                             </p>
+                            <div class="architronix-button d-block d-xl-none mt-4">
+                                <a href="{% url 'custom_view:project_single' item.project.id %}" class="btn btn-outline-secondary gap-10">{{ get_global_txt_section.0.next_Projects }}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="project-carousel-buttons d-flex gap-4">
+                <a href="#" class="project-prev-btn btn prev-btn prev-btn-sm" data-bs-target="#projectSlider" data-bs-slide="prev">
+                    <svg class="arrow-reverse" width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"></path>
+                    </svg>
+                </a>
+                <a href="#" class="project-next-btn btn btn-primary gap-10" data-bs-target="#projectSlider" data-bs-slide="next">
+                    {{ get_global_txt_section.0.next_Projects }}
+                    <svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Project Section -->

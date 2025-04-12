@@ -1,0 +1,22 @@
+{% load static %}
+{% load i18n %}
+
+<!--Blog Section ======================-->
+<section class="section-blog blog-1"   style="direction: {% if 'ar' in request.LANGUAGE_CODE %}rtl{% else %}ltr{% endif %};">	
+    <div class="container">
+        <div class="swiper-custom-progress position-relative">
+            <div class="swiper blog-swiper">
+                <div class="swiper-wrapper"> 
+                    {% for blog_data in blog_list_section %}
+                    <div class="swiper-slide">
+                        {% include 'templet_app/section/blog/blog_item.html' %}
+                    </div>
+                    {% endfor %}
+                </div>
+                <!-- swiper-wrapper -->
+            </div>
+            <!-- swiper -->
+        </div>	
+    </div>	
+</section>
+<!--Blog Section ======================-->

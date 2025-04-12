@@ -1,0 +1,31 @@
+{% load static %}
+{% load i18n %}
+
+
+<br/><br/><br/>
+
+
+<!-- About Section ======================-->
+<div class="event-counter position-relative"  style="direction: {% if 'ar' in request.LANGUAGE_CODE %}rtl{% else %}ltr{% endif %};">
+    <div class="container">
+        <div class="row row-cols-2 row-cols-md-3 gy-lg-0 gy-4 justify-content-between">
+          
+        {% for active_feedback in active_feedbacks %}
+            <div class="col-md-6 col-lg-4 col-xl-3">
+                <div class="separator d-flex align-items-center fw-extra-bold display-3">
+                    {% if active_feedback.number %}
+                        <span class="odometer" data-count-to="{{ active_feedback.number }}"></span>
+                    {% endif %}
+                    {% if active_feedback.icon %}
+                        <span class="odometer-icon">{{ active_feedback.icon }}</span>
+                    {% endif %}
+                </div>  
+                {% if active_feedback.title %}
+                    <p class="fs-5 fw-bold mb-0 mt-1 mt-lg-2 mt-xxl-3">{{ active_feedback.title }}</p>
+                {% endif %}
+            </div>
+        {% endfor %}
+
+        </div>
+    </div>
+</div>

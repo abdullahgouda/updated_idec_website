@@ -1,0 +1,89 @@
+{% load static %}
+
+
+			<!--Footer Section ======================-->
+			<footer class="section-footer section-full-width bg-secondary position-relative"  style="direction: {% if 'ar' in request.LANGUAGE_CODE %}rtl{% else %}ltr{% endif %};">
+				<div class="container">
+					<div class="footer-contents">
+						<div class="row gy-5 gy-lg-0 align-items-center justify-content-between">
+							<div class="col-lg-4">
+								<div>
+									<a class="navbar-brand py-0" href="/">
+										<span class="logo">
+										 
+													<img src="{{ get_GlobalInfo_section.0.logo_home.url }}" alt="logo">
+											 
+										</span>
+									</a>
+
+									
+
+									<p class="py-10 py-lg-3 mb-0 fw-semibold">
+										{% for info in get_GlobalInfo_section %}
+											{{ info.small_description|default:"Shaping Interior Excellence" }}
+										{% endfor %}
+									</p>
+								</div>
+							</div>
+							<!-- col-4 -->
+					 
+
+
+							{% for address in get_CompanyAddress_section %}
+							{% if address.is_footer %}
+								<div class="col-lg-4 col-xxl-3">
+									<div class="address-details">
+										<h5 class="fw-extra-bold separator">{{ address.title }}</h5>
+										<div class="footer-address">
+											<p class="fw-semibold mb-0">{{ address.title }}</p>
+											<p>{{ address.sub_title }}</p>
+										</div>
+										<div class="d-flex flex-column">
+											<p class="mb-0 d-flex align-items-center gap-2">
+												Phone: <a href="tel:{{ address.phone }}" class="text-decoration-none link-hover-animation-1">{{ address.phone }}</a>
+											</p>
+											<p class="mb-0 d-flex align-items-center gap-2">
+												Email: <a href="mailto:{{ address.email }}" class="text-decoration-none link-hover-animation-1">{{ address.email }}</a>
+											</p>
+										</div>									
+									</div>
+								</div>
+							{% endif %}
+						{% endfor %}
+
+
+
+
+
+
+
+
+
+
+<!-- 
+						<div class="col-lg-4 col-xxl-3">
+							<div class="address-details">
+								<h5 class="fw-extra-bold  "><a href="#" class="link-hover-animation-1 text-decoration-none  " aria-label="top-bar-link">fb</a></h5>
+								<h5 class="fw-extra-bold  "><a href="#" class="link-hover-animation-1 text-decoration-none  " aria-label="top-bar-link">fb</a></h5>
+								<h5 class="fw-extra-bold  "><a href="#" class="link-hover-animation-1 text-decoration-none  " aria-label="top-bar-link">fb</a></h5>
+								<h5 class="fw-extra-bold  "><a href="#" class="link-hover-animation-1 text-decoration-none  " aria-label="top-bar-link">fb</a></h5>
+						
+							</div>
+						</div> -->
+
+						{% for info in get_GlobalInfo_section %}
+    {{ info.html_content|safe }}
+{% endfor %}
+
+
+
+						</div>
+					</div>
+					<div class="copyright d-flex flex-column gap-2 flex-lg-row justify-content-lg-between align-items-lg-center text-center text-sm-start">
+						<p class="mb-0">Made with Love by  IDEC  team</p>
+						<p class="mb-0">&copy; 2025, IDEC</p>
+					</div>
+				</div>
+				<!-- container -->
+			</footer>
+			<!--Footer Section ======================-->

@@ -1,0 +1,40 @@
+{% load static %}
+{% load i18n %}
+<!-- product_item.html -->
+<div class="swiper-slide">
+    <div class="shop-details  align-items-center text-center ">
+        <div class="shop-image-wrapper position-relative">
+            <div class="shop-image">
+
+                <a href="{% url 'custom_view:Product_detail' product_data.product.id %}">
+
+                {% if product_data.main_photo %}
+                    <img src="{{ product_data.main_photo.photo.url }}" class="w-100 h-100 object-fit-cover" alt="{{ product_data.product.title }}">
+                {% else %}
+                    <img src="{% static 'assets/images/default-product.jpg' %}" class="w-100 h-100 object-fit-cover" alt="Default image">
+                {% endif %}
+            </a>
+
+            </div>
+            {% comment %} <div class="shop-image-hover">
+                <!-- Hover effects if needed -->
+            </div> {% endcomment %}
+        </div>
+        <!-- shop-image-wrapper -->
+        <a href="{% url 'custom_view:Product_detail' product_data.product.id %}" class="text-decoration-none  align-items-center text-center ">
+            <div class="shopping-info-wrapper mt-3 mt-lg-4 d-flex justify-content-between">
+                <div class="shopping-item-details" >
+                    <h5 class="fw-semibold product-title text-center d-flex justify-content-center align-items-center">
+                        {{ product_data.product.title }}
+                    </h5>                </div>
+                <div>
+                    <!-- Optional: Add price and rating if available -->
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+
+
+ 

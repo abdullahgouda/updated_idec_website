@@ -1,0 +1,72 @@
+{% load static %}
+
+
+
+
+
+<ul class="navbar-nav justify-content-end flex-grow-1 align-items-xl-center"  style="direction: {% if 'ar' in request.LANGUAGE_CODE %}rtl{% else %}ltr{% endif %};">
+
+    <!-- <h1>
+        {% if LANGUAGE_CODE == 'ar' %}
+            {{ message }}  
+        {% else %}
+            {{ message }}  
+        {% endif %}
+    </h1>					 -->
+							
+ 
+    <ul class="nav">
+        {% for category in categories %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'custom_view:catagory_detail' category.id %}">
+                    {{ category.name }}  <!-- سيتم عرض الاسم بناءً على اللغة الحالية -->
+                </a>                                       
+            </li>
+        {% empty %}
+          
+        {% endfor %}
+    </ul>
+ 
+    
+  
+
+
+
+
+
+
+
+
+
+  <!-- <form action="{% url 'set_language' %}" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="language" value="en">
+    <button type="submit" class="btn btn-link">EN</button>
+</form>
+
+<form action="{% url 'set_language' %}" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="language" value="ar">
+    <button type="submit" class="btn btn-link">AR</button>
+</form>   -->
+
+
+<form action="{% url 'set_language' %}" method="post" class="d-inline" style="margin-left: 5px; margin-right: 5px;">
+    {% csrf_token %}
+    <input type="hidden" name="language" value="en">
+    <button type="submit" class="btn btn-link p-0 border-0">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg" width="30" alt="English">
+    </button>
+</form>
+
+<form action="{% url 'set_language' %}" method="post" class="d-inline" style="margin-left: 5px; margin-right: 5px;">
+    {% csrf_token %}
+    <input type="hidden" name="language" value="ar">
+    <button type="submit" class="btn btn-link p-0 border-0">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Flag_of_Saudi_Arabia.svg" width="30" alt="العربية">
+    </button>
+</form>
+
+
+
+</ul>	

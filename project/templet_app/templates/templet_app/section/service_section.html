@@ -1,0 +1,57 @@
+{% load static %}
+{% load i18n %}
+
+<!--Service Section ======================-->
+<section class="section-service"   >
+    <div class="section-full-width">
+      
+        <div class="swiper-custom-progress position-relative mt-n30">
+            <div class="swiper service-swiper">
+                <div class="swiper-wrapper">
+                    {% for service in active_services %}
+                    <div class="swiper-slide">
+                        <div class="service-details">
+                            <h2 class="stroke-heading ltr-heading" style="direction: ltr; unicode-bidi: isolate;">
+                                <svg stroke-width="1" class="text-line-2 fw-extra-bold">
+                                    <text x="0%" dominant-baseline="middle" y="70%"> {% if LANGUAGE_CODE == 'ar' %} x="100%" {% else %} x="0%" {% endif %} dominant-baseline="middle" y="70%">{{ forloop.counter|default:"01" }}</text>
+                                </svg>
+                            </h2>
+
+ 
+
+
+
+                            <a href="{% url 'custom_view:Service_detail' service.id %}" class="text-decoration-none">
+                                <h4 class="service-title link-hover-animation-1 d-inline-block">{{ service.title }}</h4>
+                            </a>
+                            <p class="mb-0">{{ service.sub_title }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <!-- swiper-slide-->
+                </div>
+                <!-- swiper-wrapper -->
+            </div>
+            <!-- swiper -->
+            <div class="container">
+                <div class="service-swiper-pagination-wrapper">
+                    <div class="service-swiper-pagination"></div>
+                    <div class="swiper-button-progress">
+                        <div class="progress-button-prev">
+                            <svg class="arrow-reverse" width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
+                            </svg>
+                        </div>
+                        <div class="progress-button-next">
+                            <svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- section-full-width -->
+</section>
+<!--Service Section ======================-->

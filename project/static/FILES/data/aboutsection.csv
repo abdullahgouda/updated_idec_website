@@ -1,0 +1,76 @@
+﻿title,title_en,title_ar,photo,if_about_page,video,type,is_active,html_content,html_content_en,html_content_ar
+معلومات عنا,about us,معلومات عنا,about_section/about-image.jpg,1,,photo,1,"<div class=""col-lg-6"">
+    <div class=""about-contents d-flex flex-column"">
+        <div class=""about-content-inner d-flex flex-column flex-lg-row"">
+            <div>
+                <h4>حلول الصوتيات والمرئيات والاتصالات</h4>
+                <p class=""mb-0"">ريادة الصناعة من خلال حلول الفيديو كونفرنس والصوتيات والمرئيات المبتكرة المصممة لتلبية الاحتياجات المتنوعة.</p>
+            </div>
+        </div>
+        <div class=""about-content-inner d-flex flex-column flex-lg-row"">
+            <div>
+                <h4>حلول الأثاث المكتبي</h4>
+                <p class=""mb-0"">تقديم علامات تجارية عالمية مميزة للأثاث المخصص للمكاتب، غرف الاجتماعات، مراكز التدريب، المؤسسات التعليمية، والمزيد.</p>
+            </div>
+        </div>
+        <div class=""about-content-inner d-flex flex-column flex-lg-row"">
+            <div>
+                <h4>تصميم وتنفيذ الديكورات الداخلية</h4>
+                <p class=""mb-0"">توفير تصاميم ثنائية وثلاثية الأبعاد، بالإضافة إلى توريد المواد وتنفيذ المشاريع لإحياء أفكارك.</p>
+            </div>
+        </div>
+        <div>
+        </div>
+    </div>
+</div>","<div class=""col-lg-6"">
+								<div class=""about-contents d-flex flex-column"">
+									<div class=""about-content-inner d-flex flex-column flex-lg-row"">
+										 									
+										
+										<div>
+											<h4>Audio-Visual & Communication Solutions</h4>
+											<p class=""mb-0"">Leading the industry with cutting-edge videoconferencing and AV solutions tailored to meet diverse needs.</p>
+										</div>
+									</div>
+									<div class=""about-content-inner d-flex flex-column flex-lg-row"">
+									 
+										<div>
+											<h4>Corporate Furniture Solutions</h4>
+											<p class=""mb-0"">Offering premium global furniture brands for offices, conference rooms, training centers, educational institutions, and more.</p>
+										</div>
+									</div>
+									<div class=""about-content-inner d-flex flex-column flex-lg-row"">
+									 
+										<div>
+											<h4>Interior Design & Decoration</h4>
+											<p class=""mb-0"">Providing 2D and 3D designs, material supply, and execution to bring your projects to life.</p>
+										</div>
+									</div>
+									<div>
+									
+									</div>
+								</div>
+							</div>","<div class=""col-lg-6"">
+    <div class=""about-contents d-flex flex-column"">
+        <div class=""about-content-inner d-flex flex-column flex-lg-row"">
+            <div>
+                <h4>حلول الصوتيات والمرئيات والاتصالات</h4>
+                <p class=""mb-0"">ريادة الصناعة من خلال حلول الفيديو كونفرنس والصوتيات والمرئيات المبتكرة المصممة لتلبية الاحتياجات المتنوعة.</p>
+            </div>
+        </div>
+        <div class=""about-content-inner d-flex flex-column flex-lg-row"">
+            <div>
+                <h4>حلول الأثاث المكتبي</h4>
+                <p class=""mb-0"">تقديم علامات تجارية عالمية مميزة للأثاث المخصص للمكاتب، غرف الاجتماعات، مراكز التدريب، المؤسسات التعليمية، والمزيد.</p>
+            </div>
+        </div>
+        <div class=""about-content-inner d-flex flex-column flex-lg-row"">
+            <div>
+                <h4>تصميم وتنفيذ الديكورات الداخلية</h4>
+                <p class=""mb-0"">توفير تصاميم ثنائية وثلاثية الأبعاد، بالإضافة إلى توريد المواد وتنفيذ المشاريع لإحياء أفكارك.</p>
+            </div>
+        </div>
+        <div>
+        </div>
+    </div>
+</div>"

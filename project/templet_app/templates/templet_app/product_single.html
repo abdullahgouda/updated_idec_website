@@ -1,0 +1,749 @@
+{% extends 'include_customer/base.html' %}
+
+
+{% load static %}
+
+
+
+
+{% block top_catagory_navbar %}    
+{% include 'templet_app/section/top_catagory_navbar.html' %}
+{% endblock top_catagory_navbar %}
+
+
+
+
+
+{% block footer %}    
+{% include 'templet_app/section/footer.html' %}
+{% endblock footer %}
+
+
+
+
+
+
+
+
+
+{% block body %}    
+ 
+
+
+
+<Style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	.architronix-button_product{
+		align-items: center;
+		margin: 30px auto;
+
+	}
+	.architronix-button_product .btn {
+		display: flex; /* يستخدم flex لتنسيق المحاذاة */
+		align-items: center;
+		justify-content: space-between; /* يجعل النص على اليسار والأيقونة على اليمين */
+		margin: 10px auto;
+		border-radius: 30px;
+		padding: 12px 25px;
+		border-width: 2px;
+		width: 100%;
+		max-width: 500px;
+		transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+		text-align: left; /* محاذاة النص لليسار */
+		font-weight: normal;
+	}
+	
+	.architronix-button_product .btn:hover {
+		color: #fff;
+		box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+	}
+	
+	.architronix-button_product .btn .fa-whatsapp,
+	.architronix-button_product .btn .fa-envelope {
+		color: #25D366;
+		transition: transform 0.3s;
+	}
+	
+	.architronix-button_product .btn:hover .fa-whatsapp,
+	.architronix-button_product .btn:hover .fa-envelope {
+		transform: translateX(5px);
+	}
+	
+	.architronix-button_product .btn .btn-text {
+		flex-grow: 1; /* يجعل النص يشغل مساحة أكبر لضمان المحاذاة */
+		margin-right: 10px; /* يضيف مسافة بسيطة بين النص والأيقونة */
+	}
+	
+	
+
+
+
+
+
+
+	.form-popup-bg {
+		position: fixed;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 0.3s, visibility 0s 0.3s;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: 10000;
+		background: rgba(0, 0, 0, 0.5); /* الظل الخلفي */
+	}
+	
+	.form-popup-bg.is-visible {
+		opacity: 1;
+		visibility: visible;
+		transition: opacity 0.3s, visibility 0s;
+	}
+	
+	.form-container {
+		background-color: #fff;
+		border-radius: 15px;
+		padding: 30px;
+		width: 100%;
+		max-width: 700px;
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 6px 6px rgba(0, 0, 0, 0.15);
+		position: relative;
+		transition: transform 0.3s ease-in-out;
+		transform: scale(0.9);
+	}
+	
+	.form-popup-bg.is-visible .form-container {
+		transform: scale(1);
+	}
+	
+	.close-button {
+		background: none;
+		color: #333;
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		font-size: 30px;
+		border: none;
+		cursor: pointer;
+	}
+	
+	.product-card {
+		border: 1px solid #ddd;
+		border-radius: 10px;
+		padding: 20px;
+		margin-bottom: 20px;
+		display: flex;
+		align-items: center;
+		transition: all 0.3s ease-in-out;
+	}
+	
+
+	
+	.product-card img {
+		width: 100px;
+		height: 100px;
+		border-radius: 10px;
+		margin-right: 15px;
+		transition: all 0.3s ease;
+	}
+	
+
+	
+	.section-title {
+		font-size: 24px;
+		font-weight: 600;
+		color: #333;
+		margin-bottom: 20px;
+	}
+	
+	.input-row {
+		display: flex;
+		gap: 20px;
+		margin-bottom: 20px;
+	}
+	
+	.input-row input {
+		width: 100%;
+		padding: 12px 15px;
+		border: 1px solid rgba(0, 0, 0, 0.2); /* لون حد خفيف */
+		border-radius: 10px;
+		font-size: 16px;
+		outline: none;
+		transition: border-color 0.3s;
+	}
+	
+	.input-row input:focus {
+		border-color: #4CAF50;
+	}
+	
+	.submit-btn {
+		padding: 15px 30px;
+		font-size: 16px;
+		width: 50%; /* عرض الزر بنسبة 50% من عرض الحاوية */
+		display: block; /* يخلي الزر بلوك */
+		margin: 20px auto; /* يوسّط الزر أفقيًا */
+		text-align: center; /* يوسّط النص داخل الزر */
+	  }
+	
+ 
+	  .form-row {
+		display: flex;
+		gap: 15px; /* مسافة بين الحقول داخل الصف */
+		margin-bottom: 20px; /* مسافة بين كل صف */
+	  }
+	  .form-group {
+		flex: 1; /* علشان الحقول تاخد نفس العرض */
+	  }
+
+
+
+</Style>
+
+
+
+
+
+	 
+<!-- Toast Container -->
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div id="myToast" class="toast align-items-center text-white bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body">
+                {{ get_global_txt_section.0.toast_massage_form_product }}
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- Shop-Tabs Section ======================-->
+<section class="section-shop section-shop-tabs pt-130 pt-lg-200 position-relative"   style="direction: {% if 'ar' in request.LANGUAGE_CODE %}rtl{% else %}ltr{% endif %};">
+    <div class="container">    
+        <div class="row justify-content-between gy-4">
+            <div class="col-lg-6">
+                <!-- Tabs-Contents -->            
+                <div class="tab-content" id="shops-tabContent">
+                    {% comment %} <!-- shop-1-tab -->
+                    <div class="tab-pane fade show active" id="shop-1" role="tabpanel" aria-labelledby="shop-1-tab" tabindex="0">
+                        <img src="{{ product.0.main_photo.photo.url }}" class="img-fluid" alt="img">
+                    </div>
+                    <!-- shop-1-tab -->
+
+                </div>
+                <!-- Tabs-Contents --> 
+
+                <!-- Tabs -->
+                <ul class="shop-tabs nav nav-pills d-flex gap-20 mt-20" id="shops-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="shop-button active" id="shop-1-tab" data-bs-toggle="pill" data-bs-target="#shop-1" type="button" role="tab" aria-controls="shop-1" aria-selected="true">
+                            <img src="assets/images/shop-tab-image-1.png" alt="img">
+                        </button>
+                    </li>
+                                        
+                </ul>
+                <!-- Tabs -->
+ {% endcomment %}
+
+<!-- Tabs-Contents -->            
+    {% for photo in product.0.photos %}
+        <div class="tab-pane fade show {% if forloop.counter0 == 0 %} active {% endif %}" id="shop-{{ forloop.counter }}" role="tabpanel" aria-labelledby="shop-{{ forloop.counter }}-tab" tabindex="0">
+            <img src="{{ photo.photo.url }}" class="img-fluid" alt="Product Image {{ forloop.counter }}"  style="width: 600px; height: 600px; object-fit: cover;">
+        </div>
+    {% empty %}
+    {% endfor %}
+</div>
+<!-- Tabs-Contents -->
+
+<!-- Tabs -->
+<ul class="shop-tabs nav nav-pills d-flex gap-20 mt-20" id="shops-tab" role="tablist">
+    {% for photo in product.0.photos %}
+        <li class="nav-item" role="presentation">
+            <button class="shop-button {% if forloop.counter0 == 0 %} active {% endif %}" id="shop-{{ forloop.counter }}-tab" data-bs-toggle="pill" data-bs-target="#shop-{{ forloop.counter }}" type="button" role="tab" aria-controls="shop-{{ forloop.counter }}" aria-selected="true">
+                <img src="{{ photo.photo.url }}" alt="Thumbnail for image {{ forloop.counter }}" width="100" height="100">
+            </button>
+        </li>
+    {% empty %}
+    {% endfor %}
+</ul>
+<!-- Tabs -->
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+            </div>
+            <!-- col-6 -->
+            <div class="col-lg-5" style="margin-top: 40px;">
+                <div class="shop-product-descriptions sticky-elements">
+                    <h5 class="display-5 lh-1">{{ product.0.product.title }}</h5>
+                    <!-- <p class="mb-0 mt-3 mt-lg-20">{{ product.0.product.sub_title }}</p> -->
+
+           
+                    <div class="container mt-3">
+                        <ul class="list-group">
+                            {% for pdf in pdfs %}
+                                <li class="list-group-item border-0">
+                                    <!-- <a href="{{ pdf.file.url }}" class="pdf-link" data-url="{{ pdf.file.url }}">  
+                                        <strong>{{ pdf.title }}</strong> 
+                                    </a> -->
+                                    <!-- <a href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasContact" aria-controls="offcanvasContact" aria-expanded="false" aria-label="Toggle navigation">
+                                        <strong>{{ pdf.title }}</strong>
+                                    </a>
+                                     -->
+                                     <a href="#" id="showToast" data-toggle="tooltip" title="يجب عليك ملء النموذج!">
+                                        <strong>{{ pdf.title }}</strong>
+                                    </a>
+                                    
+                                  
+
+                               
+                               
+                                </li>
+                            {% endfor %}
+
+
+ 
+
+                        </ul>
+                    
+                        
+                    </div>
+                    
+              
+                    
+
+
+
+
+
+
+                 
+                    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                          <div class="toast-header">
+                            <img src="..." class="rounded me-2" alt="...">
+                            <strong class="me-auto">Bootstrap</strong>
+                            <small>11 mins ago</small>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                          </div>
+                          <div class="toast-body">
+                            Hello, world! This is a toast message.
+                          </div>
+                        </div>
+                      </div>
+                    
+
+
+
+
+
+
+
+
+
+                    
+                    <ul class="shop-product-list d-flex flex-column gap-10 list-unstyled mb-0" style="margin-top: 40px;">
+                        <li class="d-flex align-items-center gap-10">
+                            <span class="list-description">{{ get_global_txt_section.0.category }} :</span><a href="{% url 'custom_view:catagory_detail' product.0.product.categories.id %}" class="shop-items-link link-hover-animation-1">{{ product.0.product.categories.name }}</a>
+                        </li>
+                     
+
+
+
+                        {% if not product.0.product.brands == false %}
+                  
+
+
+
+                        <li class="d-flex align-items-center gap-10">
+                            <span class="list-description">{{ get_global_txt_section.0.Brands }} :</span>
+                            <a href="{% url 'custom_view:brand_detail' product.0.product.brands.id %}" class="shop-items-link link-hover-animation-1">{{ product.0.product.brands.name }}</a>
+                        </li>
+
+                    {% endif %}
+
+
+                    </ul>
+
+
+
+
+
+
+
+
+
+                    <div class="architronix-button_product" >
+
+
+
+                        {% for info in get_GlobalInfo_section %}
+                            <a href="https://wa.me/{{ info.whats_phone }}?text={{ info.whats_product_massage }}-%0A{{ product.0.product.title }}-%0A{{ product.0.product.sub_title }}" class="btn btn-outline-primary gap-10" id="btnOpenForm1">
+                                {{ info.whats_product_botton }} <i class="fab fa-whatsapp"></i>  
+                              </a> 
+                            
+                    {% endfor %}	
+
+
+
+                        <!-- الروابط -->
+                       
+                      
+                        {% comment %} <a href="#" class="btn btn-outline-primary gap-10" id="btnOpenForm2">
+                          Request Info <i class="fas fa-question-circle"></i>  
+                        </a> {% endcomment %}
+                      
+                      
+                               <!-- زر الانتقال -->
+                           
+                         
+                                                       
+                                                      </div>
+
+
+
+
+                </div>                          
+            </div>
+        </div>
+        <!-- row -->
+    </div>
+    <!-- container -->
+</section>
+<!-- Shop-Tabs Section ======================-->
+
+
+
+
+
+
+
+
+			<!--Shop-Description Section ======================-->
+            <div class="section-shop section-shop-description pt-60 pt-lg-100 position-relative"   style="direction: {% if 'ar' in request.LANGUAGE_CODE %}rtl{% else %}ltr{% endif %};">
+                <div class="container">
+                    <!-- Tabs -->
+                    <ul class="shop-description-tabs nav nav-pills d-flex" id="shop-description-tab" role="tablist">
+                        <!-- Check if Description exists -->
+                        {% if product.0.product.description %}
+                            <li class="nav-item" role="presentation">
+                                <span class="shop-description-button active" id="description-1-tab" data-bs-toggle="pill" data-bs-target="#description-1" role="tab" aria-controls="description-1" aria-selected="true">
+                                    <span class="fs-4 fw-bold mb-0">{{ get_global_txt_section.0.description }}</span>
+                                </span>
+                            </li>
+                        {% endif %}
+            
+                        <!-- Check if Product Details exists -->
+                        {% if product.0.product.details %}
+                            <li class="nav-item" role="presentation">
+                                <span class="shop-description-button" id="description-2-tab" data-bs-toggle="pill" data-bs-target="#description-2" role="tab" aria-controls="description-2" aria-selected="false">
+                                    <span class="fs-4 fw-bold mb-0">{{ get_global_txt_section.0.details }}</span>
+                                </span>
+
+
+
+
+
+
+                            </li>
+                        {% endif %}
+            
+                        <!-- Always show Reviews tab -->
+                        <li class="nav-item" role="presentation">
+                            <span class="shop-description-button" id="description-3-tab" data-bs-toggle="pill" data-bs-target="#description-3" role="tab" aria-controls="description-3" aria-selected="false">
+                                <span class="fs-4 fw-bold mb-0">{{ get_global_txt_section.0.Request }}</span>                            
+                            </span>
+                        </li>             
+                    </ul>
+                    <!-- Tabs -->
+            
+                    <!-- Tabs-Contents -->            
+                    <div class="tab-content" id="shop-description-tabContent">
+                        <!-- Check if Description exists -->
+                        {% if product.0.product.description %}
+                            <div class="tab-pane fade show active" id="description-1" role="tabpanel" aria-labelledby="description-1-tab" tabindex="0">
+                                <div class="description-details">
+                                    <!-- {{ product.0.product.description }}  -->
+                                    {{ product.0.product.description|safe }}
+
+                                </div>                            
+                            </div>
+                        {% endif %}
+            
+                        <!-- Check if Product Details exists -->
+                        {% if product.0.product.details %}
+                            <div class="tab-pane fade" id="description-2" role="tabpanel" aria-labelledby="description-2-tab" tabindex="0">
+                                <div class="description-details">
+                                    <!-- {{ product.0.product.details }}   -->
+                                    {{ product.0.product.details|safe }}
+
+                                </div>                        
+                            </div>
+                        {% endif %}
+            
+                        <!-- Reviews tab content -->
+                        <div class="tab-pane fade" id="description-3" role="tabpanel" aria-labelledby="description-3-tab" tabindex="0">
+                            <div class="description-details">
+                                {% comment %} <form id="contactForm" class="contact-form row gy-3 gx-20">
+                                    <div class="col-12">
+                                        <input type="text" class="form-control" id="InputName" name="InputName" placeholder="Your Name*" required="">
+                                    </div>        
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" id="InputNumber" name="InputNumber" placeholder="Phone Number">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="email" class="form-control" id="InputEmail" name="InputEmail" placeholder="Email*" required="">
+                                    </div>        
+                                    <div class="col-12">
+                                        <textarea class="form-control" id="InputMessage" name="InputMessage" rows="5" placeholder="Type your message"></textarea>
+                                    </div>        
+                                    <div class="col-12">
+                                        <div class="text-lg-end">
+                                            <button type="submit" class="btn btn-outline-primary  gap-10">Send message  
+                                                <svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"></path>
+                                                </svg>                            
+                                            </button>
+                                        </div>                                    
+                                    </div>    
+                                    <div class="response py-3"></div>                                              
+                                </form> {% endcomment %}
+                            
+                            
+                            
+                            
+                            
+                            
+                                <form id="contactForm" class="contact-form row gy-3 gx-20" method="POST">
+                                    {% csrf_token %}
+
+
+                                    <div class="col-12">
+                                        <select class="form-control" id="InputFileType" name="file_types">
+                                            <option value="">Select</option>
+                                            {% for file_type in form.file_types.field.queryset %}
+                                                <option value="{{ file_type.id }}">{{ file_type.name }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+
+                                    
+                                    
+                                    <div class="col-12">
+                                        <input type="text" class="form-control" id="InputName" name="name" placeholder="Your Name*" required="" value="">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" id="InputNumber" name="phone" placeholder="Phone Number" value="">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="email" class="form-control" id="InputEmail" name="email" placeholder="Email*" required="" value="">
+                                    </div>
+                                    <div class="col-12">
+                                        <textarea class="form-control" id="InputMessage" name="message" rows="5" placeholder="Type your message"></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <input type="hidden" name="product" value="{{ product.0.product.id }}">
+                                        <div class="text-lg-end">
+                                            <button type="submit" class="btn btn-outline-primary gap-10">Send message  
+                                                <svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"></path>
+                                                </svg>                            
+                                            </button>
+                                        </div>                                    
+                                    </div>    
+                                    {% comment %} <div class="response py-3">
+                                        {% if form.errors %}
+                                            <ul>
+                                                {% for field in form %}
+                                                    {% for error in field.errors %}
+                                                        <li>{{ error }}</li>
+                                                    {% endfor %}
+                                                {% endfor %}
+                                            </ul>
+                                        {% endif %}
+                                    </div> {% endcomment %}
+                                </form>
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            </div>                        
+                        </div>
+                    </div>
+                    <!-- Tabs-Contents -->                     
+                </div>
+            </div>
+            
+			<!--Shop-Description Section ======================-->
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- نموذج الاتصال ====================== -->
+<div class="offcanvas offcanvas-end" id="offcanvasContact" tabindex="-1">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title">اتصل بنا</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body px-3 py-40 py-xxl-100 px-lg-5">
+        <form action="/submit-contact/" method="post">
+            <input type="hidden" id="product_id" name="product_id">
+
+            <div class="mb-3">
+                <label for="prod_name" class="form-label">اسم المنتج</label>
+                <input type="text" class="form-control" id="prod_name" name="prod_name" readonly>
+            </div>
+
+            <div class="mb-3">
+                <label for="name" class="form-label">الاسم</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">البريد الإلكتروني</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="phone" class="form-label">رقم الهاتف</label>
+                <input type="text" class="form-control" id="phone" name="phone" required>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">الرسالة</label>
+                <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="fileType" class="form-label">نوع الملف</label>
+                <select class="form-select" id="fileType" name="fileType">
+                    <option value="">اختر نوع الملف</option>
+                    <option value="1">PDF</option>
+                    <option value="2">Word</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="status" class="form-label">الحالة</label>
+                <select class="form-select" id="status" name="status">
+                    <option value="new">جديد</option>
+                    <option value="in_progress">تحت المعالجة</option>
+                    <option value="resolved">تم الحل</option>
+                    <option value="closed">مغلق</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">إرسال</button>
+        </form>
+    </div>
+</div>
+<!-- نموذج الاتصال ====================== -->
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var contactModal = document.getElementById("offcanvasContact");
+        contactModal.addEventListener("show.bs.offcanvas", function (event) {
+            var button = event.relatedTarget;  // الزر الذي تم النقر عليه
+            if (button) {
+                var productId = button.getAttribute("data-product-id"); 
+                var productName = button.getAttribute("data-product-name"); 
+
+                document.getElementById("product_id").value = productId; 
+                document.getElementById("prod_name").value = productName; 
+            }
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var showToastBtn = document.getElementById("showToast");
+        var myToast = new bootstrap.Toast(document.getElementById("myToast"));
+
+        showToastBtn.addEventListener("click", function(event) {
+            event.preventDefault(); // منع الانتقال إلى #
+            myToast.show();
+        });
+    });
+</script>
+
+    {% for structure in structures %}
+    {% if structure.command_code %}
+         {% include structure.command_code %}
+    {% else %}
+             {{ structure.html_content|safe }}
+    {% endif %}
+{% endfor %}
+
+
+
+ 
+
+
+
+
+
+
+{% endblock body %}
+ 
+
+
+
+

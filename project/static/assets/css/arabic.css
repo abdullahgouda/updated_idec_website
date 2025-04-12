@@ -1,0 +1,121 @@
+@font-face {
+    font-family: 'arfont'; /*a name to be used later*/
+    src: url('../fonts/arfonty.ttf'); /*URL to font*/
+}
+.page.arabic{
+    direction: rtl;
+    text-align: right;
+    font-family: 'Cairo';
+}
+.page.arabic .dropdown-menu{
+    text-align: right;
+}
+.page.arabic .header-1.sticky .nav-link {
+    flex-direction: row-reverse;
+
+}
+.page.arabic .link-hover-animation-1 {
+    background-position: right 100%;
+}
+
+
+/* @media (min-width: 992px) {
+
+    .page.arabic .flex-lg-row {
+        flex-direction: row-reverse;
+    }
+} */
+.page.arabic .separator:after{
+    right: 0;
+    left: auto;
+}
+.page.arabic .gallery-contents .gallery-wrapper .gallery-info{
+    right:  var(--bs-gallery-item-info-left-spacing);
+}
+
+.page.arabic .reverse{
+    transform: rotate(180deg);
+}
+.page.arabic .text-start{
+    text-align: right;
+}
+.page.arabic .btn::after{
+    left: auto;
+    right: 0;
+}
+
+.page.arabic .carousel-indicators{
+    left:140px;
+    right: auto;
+}
+.page.arabic .customise-btn{
+    left: auto;
+}
+
+.page.arabic .guide-arrow{
+    transform: rotate(180deg);
+}
+
+
+.page.arabic .video-contents:before{
+    left: auto;
+    right: 0;
+}
+
+.page.arabic .video-image-wrapper {
+    /* --bs-video-img-left-spacing: 111px; */
+    right: var(--bs-video-img-left-spacing);
+}
+
+.page.arabic .section-separator{
+    padding-left: 0;
+    padding-right: var(--bs-section-padding-left);
+    border-right: 1px solid var(--bs-border-color);
+    border-left: 0px;
+}
+/* can be later generalized on all rows of needed */
+/* .page.arabic .row.g-0{
+    flex-direction: row-reverse;
+} */
+
+.page.arabic #projectSlider *:not(.flex-column){
+    flex-direction: row-reverse;
+}
+
+
+/* .page.arabic .swiper-button-progress{
+    flex-direction: row-reverse;
+} */
+
+.page.arabic .blog-title a {
+    padding-bottom: 0px;
+}
+.page.arabic .project-details-wrapper.project-details-style{
+    left: 0%;
+    right: auto;
+}
+.page.arabic .project-details-list{
+    padding-right: 0;
+}
+
+.page.arabic .project-gallery-button-prev{
+    right: 0;
+    left: auto;
+}
+.page.arabic .project-gallery-button-next{
+    left: 0;
+    right: auto;
+}
+
+.page.arabic .arrow{
+    transform: none;
+}
+
+.page.arabic .arrow-reverse{
+    transform: rotate(180deg);
+   
+}
+
+.page.arabic .credits-wrapper a{
+    background-position: right 100%;
+} 

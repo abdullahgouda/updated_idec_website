@@ -1,0 +1,34 @@
+{% load static %}
+{% load i18n %}
+
+<!-- Gallery Section ======================-->
+<section class="section-gallery max-width"   style="direction: {% if 'ar' in request.LANGUAGE_CODE %}rtl{% else %}ltr{% endif %};">
+    <div class="horizontal-accordion d-flex">
+        {% for category in categories %}
+        <div class="gallery-contents gallery-sm">
+            <div class="gallery-wrapper position-relative overflow-hidden w-100 h-100">
+                <div class="gallery-image-wrapper overlay">
+                    <!-- ربط الصورة بالفئة -->
+                    {% if category.image %}
+                        <img src="{{ category.image.url }}" class="position-absolute start-0 top-0 w-100 h-100 object-fit-cover" alt="gallery-image" style="width: 100%; height: 100%; object-fit: cover;">
+                    {% else %}
+                        <!-- صورة افتراضية في حال عدم وجود صورة -->
+                        <img src="{% static 'assets/images/default-category.jpg' %}" class="position-absolute start-0 top-0 w-100 h-100 object-fit-cover" alt="gallery-image">
+                    {% endif %}
+                    <div class="gallery-info-wrapper">
+                        <div class="gallery-info">
+                            <a href="{% url 'custom_view:catagory_detail' category.id %}" class="text-decoration-none link-hover-animation-1 gallery-title separator" style="margin-left: 50px; margin-right: 50px;">
+                                <h4 class="mb-0">{{ category.name }}</h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <h3 class="gallery-item stroke-heading stroke-heading-2 mb-0">
+                    <svg stroke-width="1" class="text-line-2 fs-60 fw-extra-bold"><text x="0%" dominant-baseline="middle" y="70%">{{ forloop.counter }}</text></svg>
+                </h3>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+<!-- Gallery Section ======================-->
